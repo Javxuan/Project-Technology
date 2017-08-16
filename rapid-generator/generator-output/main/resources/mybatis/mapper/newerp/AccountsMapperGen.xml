@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ht.report.mapper.newerp.AccountsMapperGen">
+<!-- ===========================================代码生成开始============================================ -->
+	<!-- 暂时不用缓存 <cache/> -->
+
+    <resultMap id="AccountsModelResultMap" type="com.ht.report.model.newerp.AccountsModel">
+        <result property="id" column="id"/>
+        <result property="supplierId" column="supplier_id"/>
+        <result property="bankNameCn" column="bank_name_cn"/>
+        <result property="bankNameEn" column="bank_name_en"/>
+        <result property="bankAddressCn" column="bank_address_cn"/>
+        <result property="bankAddressEn" column="bank_address_en"/>
+        <result property="bankManCn" column="bank_man_cn"/>
+        <result property="bankManEn" column="bank_man_en"/>
+        <result property="bankManLo" column="bank_man_lo"/>
+        <result property="bankPlace" column="bank_place"/>
+        <result property="bankNum" column="bank_num"/>
+        <result property="iban" column="iban"/>
+        <result property="swift" column="swift"/>
+        <result property="payWay" column="pay_way"/>
+        <result property="payType" column="pay_type"/>
+        <result property="date" column="date"/>
+        <result property="status" column="status"/>
+        <result property="adder" column="adder"/>
+        <result property="passportNumber" column="passport_number"/>
+        <result property="overseasSocialCard" column="overseas_social_card"/>
+    </resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="accountsColumns">
+			accounts.id,
+			accounts.supplier_id,
+			accounts.bank_name_cn,
+			accounts.bank_name_en,
+			accounts.bank_address_cn,
+			accounts.bank_address_en,
+			accounts.bank_man_cn,
+			accounts.bank_man_en,
+			accounts.bank_man_lo,
+			accounts.bank_place,
+			accounts.bank_num,
+			accounts.iban,
+			accounts.swift,
+			accounts.pay_way,
+			accounts.pay_type,
+			accounts.date,
+			accounts.status,
+			accounts.adder,
+			accounts.passport_number,
+			accounts.overseas_social_card
+	</sql>
+
+	<sql id="accountsValues">
+                    #{id},
+                    #{supplierId},
+                    #{bankNameCn},
+                    #{bankNameEn},
+                    #{bankAddressCn},
+                    #{bankAddressEn},
+                    #{bankManCn},
+                    #{bankManEn},
+                    #{bankManLo},
+                    #{bankPlace},
+                    #{bankNum},
+                    #{iban},
+                    #{swift},
+                    #{payWay},
+                    #{payType},
+                    #{date},
+                    #{status},
+                    #{adder},
+                    #{passportNumber},
+                    #{overseasSocialCard}
+    </sql>
+
+    <sql id="accountsValuesBatch">
+                    #{item.id},
+                    #{item.supplierId},
+                    #{item.bankNameCn},
+                    #{item.bankNameEn},
+                    #{item.bankAddressCn},
+                    #{item.bankAddressEn},
+                    #{item.bankManCn},
+                    #{item.bankManEn},
+                    #{item.bankManLo},
+                    #{item.bankPlace},
+                    #{item.bankNum},
+                    #{item.iban},
+                    #{item.swift},
+                    #{item.payWay},
+                    #{item.payType},
+                    #{item.date},
+                    #{item.status},
+                    #{item.adder},
+                    #{item.passportNumber},
+                    #{item.overseasSocialCard}
+    </sql>
+
+    <sql id="accountsSets">
+    			<if test="id != null">id=#{id},</if>
+    			<if test="supplierId != null">supplier_id=#{supplierId},</if>
+    			<if test="bankNameCn != null">bank_name_cn=#{bankNameCn},</if>
+    			<if test="bankNameEn != null">bank_name_en=#{bankNameEn},</if>
+    			<if test="bankAddressCn != null">bank_address_cn=#{bankAddressCn},</if>
+    			<if test="bankAddressEn != null">bank_address_en=#{bankAddressEn},</if>
+    			<if test="bankManCn != null">bank_man_cn=#{bankManCn},</if>
+    			<if test="bankManEn != null">bank_man_en=#{bankManEn},</if>
+    			<if test="bankManLo != null">bank_man_lo=#{bankManLo},</if>
+    			<if test="bankPlace != null">bank_place=#{bankPlace},</if>
+    			<if test="bankNum != null">bank_num=#{bankNum},</if>
+    			<if test="iban != null">iban=#{iban},</if>
+    			<if test="swift != null">swift=#{swift},</if>
+    			<if test="payWay != null">pay_way=#{payWay},</if>
+    			<if test="payType != null">pay_type=#{payType},</if>
+    			<if test="date != null">date=#{date},</if>
+    			<if test="status != null">status=#{status},</if>
+    			<if test="adder != null">adder=#{adder},</if>
+    			<if test="passportNumber != null">passport_number=#{passportNumber},</if>
+    			<if test="overseasSocialCard != null">overseas_social_card=#{overseasSocialCard}</if>
+    </sql>
+
+    <sql id="accountsWheres">
+        <!-- id 开始 -->
+        <if test="EQ_id !=null and EQ_id !=''">
+            AND accounts.id = #{EQ_id}
+        </if>
+        <if test="NEQ_id !=null and NEQ_id !=''">
+            AND accounts.id != #{NEQ_id}
+        </if>
+        <if test="LIKE_id !=null and LIKE_id !=''">
+            AND accounts.id like CONCAT('%',#{LIKE_id},'%')
+        </if>
+        <if test="LIKEP_id !=null and LIKEP_id !=''">
+            AND accounts.id like CONCAT(#{LIKEP_id},'%')
+        </if>
+        <if test="PLIKE_id !=null and PLIKE_id !=''">
+            AND accounts.id like CONCAT('%',#{PLIKE_id})
+        </if>
+        <if test="GT_id !=null and GT_id !=''">
+            AND accounts.id > #{GT_id}
+        </if>
+        <if test="LT_id !=null and LT_id !=''">
+            AND accounts.id &lt; #{LT_id}
+        </if>
+        <if test="GTE_id !=null and GTE_id !=''">
+            AND accounts.id >= #{GTE_id}
+        </if>
+        <if test="LTE_id !=null and LTE_id !=''">
+            AND accounts.id &lt;= #{LTE_id}
+        </if>
+        <if test="IN_id !=null and IN_id !=''">
+            AND accounts.id IN
+            <foreach item="item" index="index" collection="IN_id"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_id !=null and NIN_id !=''">
+            AND accounts.id NOT IN
+            <foreach item="item" index="index" collection="NIN_id"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- id 结束 -->
+        <!-- supplier_id 开始 -->
+        <if test="EQ_supplierId !=null and EQ_supplierId !=''">
+            AND accounts.supplier_id = #{EQ_supplierId}
+        </if>
+        <if test="NEQ_supplierId !=null and NEQ_supplierId !=''">
+            AND accounts.supplier_id != #{NEQ_supplierId}
+        </if>
+        <if test="LIKE_supplierId !=null and LIKE_supplierId !=''">
+            AND accounts.supplier_id like CONCAT('%',#{LIKE_supplierId},'%')
+        </if>
+        <if test="LIKEP_supplierId !=null and LIKEP_supplierId !=''">
+            AND accounts.supplier_id like CONCAT(#{LIKEP_supplierId},'%')
+        </if>
+        <if test="PLIKE_supplierId !=null and PLIKE_supplierId !=''">
+            AND accounts.supplier_id like CONCAT('%',#{PLIKE_supplierId})
+        </if>
+        <if test="GT_supplierId !=null and GT_supplierId !=''">
+            AND accounts.supplier_id > #{GT_supplierId}
+        </if>
+        <if test="LT_supplierId !=null and LT_supplierId !=''">
+            AND accounts.supplier_id &lt; #{LT_supplierId}
+        </if>
+        <if test="GTE_supplierId !=null and GTE_supplierId !=''">
+            AND accounts.supplier_id >= #{GTE_supplierId}
+        </if>
+        <if test="LTE_supplierId !=null and LTE_supplierId !=''">
+            AND accounts.supplier_id &lt;= #{LTE_supplierId}
+        </if>
+        <if test="IN_supplierId !=null and IN_supplierId !=''">
+            AND accounts.supplier_id IN
+            <foreach item="item" index="index" collection="IN_supplierId"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_supplierId !=null and NIN_supplierId !=''">
+            AND accounts.supplier_id NOT IN
+            <foreach item="item" index="index" collection="NIN_supplierId"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- supplier_id 结束 -->
+        <!-- bank_name_cn 开始 -->
+        <if test="EQ_bankNameCn !=null and EQ_bankNameCn !=''">
+            AND accounts.bank_name_cn = #{EQ_bankNameCn}
+        </if>
+        <if test="NEQ_bankNameCn !=null and NEQ_bankNameCn !=''">
+            AND accounts.bank_name_cn != #{NEQ_bankNameCn}
+        </if>
+        <if test="LIKE_bankNameCn !=null and LIKE_bankNameCn !=''">
+            AND accounts.bank_name_cn like CONCAT('%',#{LIKE_bankNameCn},'%')
+        </if>
+        <if test="LIKEP_bankNameCn !=null and LIKEP_bankNameCn !=''">
+            AND accounts.bank_name_cn like CONCAT(#{LIKEP_bankNameCn},'%')
+        </if>
+        <if test="PLIKE_bankNameCn !=null and PLIKE_bankNameCn !=''">
+            AND accounts.bank_name_cn like CONCAT('%',#{PLIKE_bankNameCn})
+        </if>
+        <if test="GT_bankNameCn !=null and GT_bankNameCn !=''">
+            AND accounts.bank_name_cn > #{GT_bankNameCn}
+        </if>
+        <if test="LT_bankNameCn !=null and LT_bankNameCn !=''">
+            AND accounts.bank_name_cn &lt; #{LT_bankNameCn}
+        </if>
+        <if test="GTE_bankNameCn !=null and GTE_bankNameCn !=''">
+            AND accounts.bank_name_cn >= #{GTE_bankNameCn}
+        </if>
+        <if test="LTE_bankNameCn !=null and LTE_bankNameCn !=''">
+            AND accounts.bank_name_cn &lt;= #{LTE_bankNameCn}
+        </if>
+        <if test="IN_bankNameCn !=null and IN_bankNameCn !=''">
+            AND accounts.bank_name_cn IN
+            <foreach item="item" index="index" collection="IN_bankNameCn"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_bankNameCn !=null and NIN_bankNameCn !=''">
+            AND accounts.bank_name_cn NOT IN
+            <foreach item="item" index="index" collection="NIN_bankNameCn"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- bank_name_cn 结束 -->
+        <!-- bank_name_en 开始 -->
+        <if test="EQ_bankNameEn !=null and EQ_bankNameEn !=''">
+            AND accounts.bank_name_en = #{EQ_bankNameEn}
+        </if>
+        <if test="NEQ_bankNameEn !=null and NEQ_bankNameEn !=''">
+            AND accounts.bank_name_en != #{NEQ_bankNameEn}
+        </if>
+        <if test="LIKE_bankNameEn !=null and LIKE_bankNameEn !=''">
+            AND accounts.bank_name_en like CONCAT('%',#{LIKE_bankNameEn},'%')
+        </if>
+        <if test="LIKEP_bankNameEn !=null and LIKEP_bankNameEn !=''">
+            AND accounts.bank_name_en like CONCAT(#{LIKEP_bankNameEn},'%')
+        </if>
+        <if test="PLIKE_bankNameEn !=null and PLIKE_bankNameEn !=''">
+            AND accounts.bank_name_en like CONCAT('%',#{PLIKE_bankNameEn})
+        </if>
+        <if test="GT_bankNameEn !=null and GT_bankNameEn !=''">
+            AND accounts.bank_name_en > #{GT_bankNameEn}
+        </if>
+        <if test="LT_bankNameEn !=null and LT_bankNameEn !=''">
+            AND accounts.bank_name_en &lt; #{LT_bankNameEn}
+        </if>
+        <if test="GTE_bankNameEn !=null and GTE_bankNameEn !=''">
+            AND accounts.bank_name_en >= #{GTE_bankNameEn}
+        </if>
+        <if test="LTE_bankNameEn !=null and LTE_bankNameEn !=''">
+            AND accounts.bank_name_en &lt;= #{LTE_bankNameEn}
+        </if>
+        <if test="IN_bankNameEn !=null and IN_bankNameEn !=''">
+            AND accounts.bank_name_en IN
+            <foreach item="item" index="index" collection="IN_bankNameEn"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_bankNameEn !=null and NIN_bankNameEn !=''">
+            AND accounts.bank_name_en NOT IN
+            <foreach item="item" index="index" collection="NIN_bankNameEn"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- bank_name_en 结束 -->
+        <!-- bank_address_cn 开始 -->
+        <if test="EQ_bankAddressCn !=null and EQ_bankAddressCn !=''">
+            AND accounts.bank_address_cn = #{EQ_bankAddressCn}
+        </if>
+        <if test="NEQ_bankAddressCn !=null and NEQ_bankAddressCn !=''">
+            AND accounts.bank_address_cn != #{NEQ_bankAddressCn}
+        </if>
+        <if test="LIKE_bankAddressCn !=null and LIKE_bankAddressCn !=''">
+            AND accounts.bank_address_cn like CONCAT('%',#{LIKE_bankAddressCn},'%')
+        </if>
+        <if test="LIKEP_bankAddressCn !=null and LIKEP_bankAddressCn !=''">
+            AND accounts.bank_address_cn like CONCAT(#{LIKEP_bankAddressCn},'%')
+        </if>
+        <if test="PLIKE_bankAddressCn !=null and PLIKE_bankAddressCn !=''">
+            AND accounts.bank_address_cn like CONCAT('%',#{PLIKE_bankAddressCn})
+        </if>
+        <if test="GT_bankAddressCn !=null and GT_bankAddressCn !=''">
+            AND accounts.bank_address_cn > #{GT_bankAddressCn}
+        </if>
+        <if test="LT_bankAddressCn !=null and LT_bankAddressCn !=''">
+            AND accounts.bank_address_cn &lt; #{LT_bankAddressCn}
+        </if>
+        <if test="GTE_bankAddressCn !=null and GTE_bankAddressCn !=''">
+            AND accounts.bank_address_cn >= #{GTE_bankAddressCn}
+        </if>
+        <if test="LTE_bankAddressCn !=null and LTE_bankAddressCn !=''">
+            AND accounts.bank_address_cn &lt;= #{LTE_bankAddressCn}
+        </if>
+        <if test="IN_bankAddressCn !=null and IN_bankAddressCn !=''">
+            AND accounts.bank_address_cn IN
+            <foreach item="item" index="index" collection="IN_bankAddressCn"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_bankAddressCn !=null and NIN_bankAddressCn !=''">
+            AND accounts.bank_address_cn NOT IN
+            <foreach item="item" index="index" collection="NIN_bankAddressCn"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- bank_address_cn 结束 -->
+        <!-- bank_address_en 开始 -->
+        <if test="EQ_bankAddressEn !=null and EQ_bankAddressEn !=''">
+            AND accounts.bank_address_en = #{EQ_bankAddressEn}
+        </if>
+        <if test="NEQ_bankAddressEn !=null and NEQ_bankAddressEn !=''">
+            AND accounts.bank_address_en != #{NEQ_bankAddressEn}
+        </if>
+        <if test="LIKE_bankAddressEn !=null and LIKE_bankAddressEn !=''">
+            AND accounts.bank_address_en like CONCAT('%',#{LIKE_bankAddressEn},'%')
+        </if>
+        <if test="LIKEP_bankAddressEn !=null and LIKEP_bankAddressEn !=''">
+            AND accounts.bank_address_en like CONCAT(#{LIKEP_bankAddressEn},'%')
+        </if>
+        <if test="PLIKE_bankAddressEn !=null and PLIKE_bankAddressEn !=''">
+            AND accounts.bank_address_en like CONCAT('%',#{PLIKE_bankAddressEn})
+        </if>
+        <if test="GT_bankAddressEn !=null and GT_bankAddressEn !=''">
+            AND accounts.bank_address_en > #{GT_bankAddressEn}
+        </if>
+        <if test="LT_bankAddressEn !=null and LT_bankAddressEn !=''">
+            AND accounts.bank_address_en &lt; #{LT_bankAddressEn}
+        </if>
+        <if test="GTE_bankAddressEn !=null and GTE_bankAddressEn !=''">
+            AND accounts.bank_address_en >= #{GTE_bankAddressEn}
+        </if>
+        <if test="LTE_bankAddressEn !=null and LTE_bankAddressEn !=''">
+            AND accounts.bank_address_en &lt;= #{LTE_bankAddressEn}
+        </if>
+        <if test="IN_bankAddressEn !=null and IN_bankAddressEn !=''">
+            AND accounts.bank_address_en IN
+            <foreach item="item" index="index" collection="IN_bankAddressEn"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_bankAddressEn !=null and NIN_bankAddressEn !=''">
+            AND accounts.bank_address_en NOT IN
+            <foreach item="item" index="index" collection="NIN_bankAddressEn"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- bank_address_en 结束 -->
+        <!-- bank_man_cn 开始 -->
+        <if test="EQ_bankManCn !=null and EQ_bankManCn !=''">
+            AND accounts.bank_man_cn = #{EQ_bankManCn}
+        </if>
+        <if test="NEQ_bankManCn !=null and NEQ_bankManCn !=''">
+            AND accounts.bank_man_cn != #{NEQ_bankManCn}
+        </if>
+        <if test="LIKE_bankManCn !=null and LIKE_bankManCn !=''">
+            AND accounts.bank_man_cn like CONCAT('%',#{LIKE_bankManCn},'%')
+        </if>
+        <if test="LIKEP_bankManCn !=null and LIKEP_bankManCn !=''">
+            AND accounts.bank_man_cn like CONCAT(#{LIKEP_bankManCn},'%')
+        </if>
+        <if test="PLIKE_bankManCn !=null and PLIKE_bankManCn !=''">
+            AND accounts.bank_man_cn like CONCAT('%',#{PLIKE_bankManCn})
+        </if>
+        <if test="GT_bankManCn !=null and GT_bankManCn !=''">
+            AND accounts.bank_man_cn > #{GT_bankManCn}
+        </if>
+        <if test="LT_bankManCn !=null and LT_bankManCn !=''">
+            AND accounts.bank_man_cn &lt; #{LT_bankManCn}
+        </if>
+        <if test="GTE_bankManCn !=null and GTE_bankManCn !=''">
+            AND accounts.bank_man_cn >= #{GTE_bankManCn}
+        </if>
+        <if test="LTE_bankManCn !=null and LTE_bankManCn !=''">
+            AND accounts.bank_man_cn &lt;= #{LTE_bankManCn}
+        </if>
+        <if test="IN_bankManCn !=null and IN_bankManCn !=''">
+            AND accounts.bank_man_cn IN
+            <foreach item="item" index="index" collection="IN_bankManCn"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_bankManCn !=null and NIN_bankManCn !=''">
+            AND accounts.bank_man_cn NOT IN
+            <foreach item="item" index="index" collection="NIN_bankManCn"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- bank_man_cn 结束 -->
+        <!-- bank_man_en 开始 -->
+        <if test="EQ_bankManEn !=null and EQ_bankManEn !=''">
+            AND accounts.bank_man_en = #{EQ_bankManEn}
+        </if>
+        <if test="NEQ_bankManEn !=null and NEQ_bankManEn !=''">
+            AND accounts.bank_man_en != #{NEQ_bankManEn}
+        </if>
+        <if test="LIKE_bankManEn !=null and LIKE_bankManEn !=''">
+            AND accounts.bank_man_en like CONCAT('%',#{LIKE_bankManEn},'%')
+        </if>
+        <if test="LIKEP_bankManEn !=null and LIKEP_bankManEn !=''">
+            AND accounts.bank_man_en like CONCAT(#{LIKEP_bankManEn},'%')
+        </if>
+        <if test="PLIKE_bankManEn !=null and PLIKE_bankManEn !=''">
+            AND accounts.bank_man_en like CONCAT('%',#{PLIKE_bankManEn})
+        </if>
+        <if test="GT_bankManEn !=null and GT_bankManEn !=''">
+            AND accounts.bank_man_en > #{GT_bankManEn}
+        </if>
+        <if test="LT_bankManEn !=null and LT_bankManEn !=''">
+            AND accounts.bank_man_en &lt; #{LT_bankManEn}
+        </if>
+        <if test="GTE_bankManEn !=null and GTE_bankManEn !=''">
+            AND accounts.bank_man_en >= #{GTE_bankManEn}
+        </if>
+        <if test="LTE_bankManEn !=null and LTE_bankManEn !=''">
+            AND accounts.bank_man_en &lt;= #{LTE_bankManEn}
+        </if>
+        <if test="IN_bankManEn !=null and IN_bankManEn !=''">
+            AND accounts.bank_man_en IN
+            <foreach item="item" index="index" collection="IN_bankManEn"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_bankManEn !=null and NIN_bankManEn !=''">
+            AND accounts.bank_man_en NOT IN
+            <foreach item="item" index="index" collection="NIN_bankManEn"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- bank_man_en 结束 -->
+        <!-- bank_man_lo 开始 -->
+        <if test="EQ_bankManLo !=null and EQ_bankManLo !=''">
+            AND accounts.bank_man_lo = #{EQ_bankManLo}
+        </if>
+        <if test="NEQ_bankManLo !=null and NEQ_bankManLo !=''">
+            AND accounts.bank_man_lo != #{NEQ_bankManLo}
+        </if>
+        <if test="LIKE_bankManLo !=null and LIKE_bankManLo !=''">
+            AND accounts.bank_man_lo like CONCAT('%',#{LIKE_bankManLo},'%')
+        </if>
+        <if test="LIKEP_bankManLo !=null and LIKEP_bankManLo !=''">
+            AND accounts.bank_man_lo like CONCAT(#{LIKEP_bankManLo},'%')
+        </if>
+        <if test="PLIKE_bankManLo !=null and PLIKE_bankManLo !=''">
+            AND accounts.bank_man_lo like CONCAT('%',#{PLIKE_bankManLo})
+        </if>
+        <if test="GT_bankManLo !=null and GT_bankManLo !=''">
+            AND accounts.bank_man_lo > #{GT_bankManLo}
+        </if>
+        <if test="LT_bankManLo !=null and LT_bankManLo !=''">
+            AND accounts.bank_man_lo &lt; #{LT_bankManLo}
+        </if>
+        <if test="GTE_bankManLo !=null and GTE_bankManLo !=''">
+            AND accounts.bank_man_lo >= #{GTE_bankManLo}
+        </if>
+        <if test="LTE_bankManLo !=null and LTE_bankManLo !=''">
+            AND accounts.bank_man_lo &lt;= #{LTE_bankManLo}
+        </if>
+        <if test="IN_bankManLo !=null and IN_bankManLo !=''">
+            AND accounts.bank_man_lo IN
+            <foreach item="item" index="index" collection="IN_bankManLo"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_bankManLo !=null and NIN_bankManLo !=''">
+            AND accounts.bank_man_lo NOT IN
+            <foreach item="item" index="index" collection="NIN_bankManLo"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- bank_man_lo 结束 -->
+        <!-- bank_place 开始 -->
+        <if test="EQ_bankPlace !=null and EQ_bankPlace !=''">
+            AND accounts.bank_place = #{EQ_bankPlace}
+        </if>
+        <if test="NEQ_bankPlace !=null and NEQ_bankPlace !=''">
+            AND accounts.bank_place != #{NEQ_bankPlace}
+        </if>
+        <if test="LIKE_bankPlace !=null and LIKE_bankPlace !=''">
+            AND accounts.bank_place like CONCAT('%',#{LIKE_bankPlace},'%')
+        </if>
+        <if test="LIKEP_bankPlace !=null and LIKEP_bankPlace !=''">
+            AND accounts.bank_place like CONCAT(#{LIKEP_bankPlace},'%')
+        </if>
+        <if test="PLIKE_bankPlace !=null and PLIKE_bankPlace !=''">
+            AND accounts.bank_place like CONCAT('%',#{PLIKE_bankPlace})
+        </if>
+        <if test="GT_bankPlace !=null and GT_bankPlace !=''">
+            AND accounts.bank_place > #{GT_bankPlace}
+        </if>
+        <if test="LT_bankPlace !=null and LT_bankPlace !=''">
+            AND accounts.bank_place &lt; #{LT_bankPlace}
+        </if>
+        <if test="GTE_bankPlace !=null and GTE_bankPlace !=''">
+            AND accounts.bank_place >= #{GTE_bankPlace}
+        </if>
+        <if test="LTE_bankPlace !=null and LTE_bankPlace !=''">
+            AND accounts.bank_place &lt;= #{LTE_bankPlace}
+        </if>
+        <if test="IN_bankPlace !=null and IN_bankPlace !=''">
+            AND accounts.bank_place IN
+            <foreach item="item" index="index" collection="IN_bankPlace"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_bankPlace !=null and NIN_bankPlace !=''">
+            AND accounts.bank_place NOT IN
+            <foreach item="item" index="index" collection="NIN_bankPlace"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- bank_place 结束 -->
+        <!-- bank_num 开始 -->
+        <if test="EQ_bankNum !=null and EQ_bankNum !=''">
+            AND accounts.bank_num = #{EQ_bankNum}
+        </if>
+        <if test="NEQ_bankNum !=null and NEQ_bankNum !=''">
+            AND accounts.bank_num != #{NEQ_bankNum}
+        </if>
+        <if test="LIKE_bankNum !=null and LIKE_bankNum !=''">
+            AND accounts.bank_num like CONCAT('%',#{LIKE_bankNum},'%')
+        </if>
+        <if test="LIKEP_bankNum !=null and LIKEP_bankNum !=''">
+            AND accounts.bank_num like CONCAT(#{LIKEP_bankNum},'%')
+        </if>
+        <if test="PLIKE_bankNum !=null and PLIKE_bankNum !=''">
+            AND accounts.bank_num like CONCAT('%',#{PLIKE_bankNum})
+        </if>
+        <if test="GT_bankNum !=null and GT_bankNum !=''">
+            AND accounts.bank_num > #{GT_bankNum}
+        </if>
+        <if test="LT_bankNum !=null and LT_bankNum !=''">
+            AND accounts.bank_num &lt; #{LT_bankNum}
+        </if>
+        <if test="GTE_bankNum !=null and GTE_bankNum !=''">
+            AND accounts.bank_num >= #{GTE_bankNum}
+        </if>
+        <if test="LTE_bankNum !=null and LTE_bankNum !=''">
+            AND accounts.bank_num &lt;= #{LTE_bankNum}
+        </if>
+        <if test="IN_bankNum !=null and IN_bankNum !=''">
+            AND accounts.bank_num IN
+            <foreach item="item" index="index" collection="IN_bankNum"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_bankNum !=null and NIN_bankNum !=''">
+            AND accounts.bank_num NOT IN
+            <foreach item="item" index="index" collection="NIN_bankNum"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- bank_num 结束 -->
+        <!-- iban 开始 -->
+        <if test="EQ_iban !=null and EQ_iban !=''">
+            AND accounts.iban = #{EQ_iban}
+        </if>
+        <if test="NEQ_iban !=null and NEQ_iban !=''">
+            AND accounts.iban != #{NEQ_iban}
+        </if>
+        <if test="LIKE_iban !=null and LIKE_iban !=''">
+            AND accounts.iban like CONCAT('%',#{LIKE_iban},'%')
+        </if>
+        <if test="LIKEP_iban !=null and LIKEP_iban !=''">
+            AND accounts.iban like CONCAT(#{LIKEP_iban},'%')
+        </if>
+        <if test="PLIKE_iban !=null and PLIKE_iban !=''">
+            AND accounts.iban like CONCAT('%',#{PLIKE_iban})
+        </if>
+        <if test="GT_iban !=null and GT_iban !=''">
+            AND accounts.iban > #{GT_iban}
+        </if>
+        <if test="LT_iban !=null and LT_iban !=''">
+            AND accounts.iban &lt; #{LT_iban}
+        </if>
+        <if test="GTE_iban !=null and GTE_iban !=''">
+            AND accounts.iban >= #{GTE_iban}
+        </if>
+        <if test="LTE_iban !=null and LTE_iban !=''">
+            AND accounts.iban &lt;= #{LTE_iban}
+        </if>
+        <if test="IN_iban !=null and IN_iban !=''">
+            AND accounts.iban IN
+            <foreach item="item" index="index" collection="IN_iban"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_iban !=null and NIN_iban !=''">
+            AND accounts.iban NOT IN
+            <foreach item="item" index="index" collection="NIN_iban"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- iban 结束 -->
+        <!-- swift 开始 -->
+        <if test="EQ_swift !=null and EQ_swift !=''">
+            AND accounts.swift = #{EQ_swift}
+        </if>
+        <if test="NEQ_swift !=null and NEQ_swift !=''">
+            AND accounts.swift != #{NEQ_swift}
+        </if>
+        <if test="LIKE_swift !=null and LIKE_swift !=''">
+            AND accounts.swift like CONCAT('%',#{LIKE_swift},'%')
+        </if>
+        <if test="LIKEP_swift !=null and LIKEP_swift !=''">
+            AND accounts.swift like CONCAT(#{LIKEP_swift},'%')
+        </if>
+        <if test="PLIKE_swift !=null and PLIKE_swift !=''">
+            AND accounts.swift like CONCAT('%',#{PLIKE_swift})
+        </if>
+        <if test="GT_swift !=null and GT_swift !=''">
+            AND accounts.swift > #{GT_swift}
+        </if>
+        <if test="LT_swift !=null and LT_swift !=''">
+            AND accounts.swift &lt; #{LT_swift}
+        </if>
+        <if test="GTE_swift !=null and GTE_swift !=''">
+            AND accounts.swift >= #{GTE_swift}
+        </if>
+        <if test="LTE_swift !=null and LTE_swift !=''">
+            AND accounts.swift &lt;= #{LTE_swift}
+        </if>
+        <if test="IN_swift !=null and IN_swift !=''">
+            AND accounts.swift IN
+            <foreach item="item" index="index" collection="IN_swift"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_swift !=null and NIN_swift !=''">
+            AND accounts.swift NOT IN
+            <foreach item="item" index="index" collection="NIN_swift"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- swift 结束 -->
+        <!-- pay_way 开始 -->
+        <if test="EQ_payWay !=null and EQ_payWay !=''">
+            AND accounts.pay_way = #{EQ_payWay}
+        </if>
+        <if test="NEQ_payWay !=null and NEQ_payWay !=''">
+            AND accounts.pay_way != #{NEQ_payWay}
+        </if>
+        <if test="LIKE_payWay !=null and LIKE_payWay !=''">
+            AND accounts.pay_way like CONCAT('%',#{LIKE_payWay},'%')
+        </if>
+        <if test="LIKEP_payWay !=null and LIKEP_payWay !=''">
+            AND accounts.pay_way like CONCAT(#{LIKEP_payWay},'%')
+        </if>
+        <if test="PLIKE_payWay !=null and PLIKE_payWay !=''">
+            AND accounts.pay_way like CONCAT('%',#{PLIKE_payWay})
+        </if>
+        <if test="GT_payWay !=null and GT_payWay !=''">
+            AND accounts.pay_way > #{GT_payWay}
+        </if>
+        <if test="LT_payWay !=null and LT_payWay !=''">
+            AND accounts.pay_way &lt; #{LT_payWay}
+        </if>
+        <if test="GTE_payWay !=null and GTE_payWay !=''">
+            AND accounts.pay_way >= #{GTE_payWay}
+        </if>
+        <if test="LTE_payWay !=null and LTE_payWay !=''">
+            AND accounts.pay_way &lt;= #{LTE_payWay}
+        </if>
+        <if test="IN_payWay !=null and IN_payWay !=''">
+            AND accounts.pay_way IN
+            <foreach item="item" index="index" collection="IN_payWay"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_payWay !=null and NIN_payWay !=''">
+            AND accounts.pay_way NOT IN
+            <foreach item="item" index="index" collection="NIN_payWay"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- pay_way 结束 -->
+        <!-- pay_type 开始 -->
+        <if test="EQ_payType !=null and EQ_payType !=''">
+            AND accounts.pay_type = #{EQ_payType}
+        </if>
+        <if test="NEQ_payType !=null and NEQ_payType !=''">
+            AND accounts.pay_type != #{NEQ_payType}
+        </if>
+        <if test="LIKE_payType !=null and LIKE_payType !=''">
+            AND accounts.pay_type like CONCAT('%',#{LIKE_payType},'%')
+        </if>
+        <if test="LIKEP_payType !=null and LIKEP_payType !=''">
+            AND accounts.pay_type like CONCAT(#{LIKEP_payType},'%')
+        </if>
+        <if test="PLIKE_payType !=null and PLIKE_payType !=''">
+            AND accounts.pay_type like CONCAT('%',#{PLIKE_payType})
+        </if>
+        <if test="GT_payType !=null and GT_payType !=''">
+            AND accounts.pay_type > #{GT_payType}
+        </if>
+        <if test="LT_payType !=null and LT_payType !=''">
+            AND accounts.pay_type &lt; #{LT_payType}
+        </if>
+        <if test="GTE_payType !=null and GTE_payType !=''">
+            AND accounts.pay_type >= #{GTE_payType}
+        </if>
+        <if test="LTE_payType !=null and LTE_payType !=''">
+            AND accounts.pay_type &lt;= #{LTE_payType}
+        </if>
+        <if test="IN_payType !=null and IN_payType !=''">
+            AND accounts.pay_type IN
+            <foreach item="item" index="index" collection="IN_payType"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_payType !=null and NIN_payType !=''">
+            AND accounts.pay_type NOT IN
+            <foreach item="item" index="index" collection="NIN_payType"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- pay_type 结束 -->
+        <!-- date 开始 -->
+        <if test="EQ_date !=null and EQ_date !=''">
+            AND accounts.date = #{EQ_date}
+        </if>
+        <if test="NEQ_date !=null and NEQ_date !=''">
+            AND accounts.date != #{NEQ_date}
+        </if>
+        <if test="LIKE_date !=null and LIKE_date !=''">
+            AND accounts.date like CONCAT('%',#{LIKE_date},'%')
+        </if>
+        <if test="LIKEP_date !=null and LIKEP_date !=''">
+            AND accounts.date like CONCAT(#{LIKEP_date},'%')
+        </if>
+        <if test="PLIKE_date !=null and PLIKE_date !=''">
+            AND accounts.date like CONCAT('%',#{PLIKE_date})
+        </if>
+        <if test="GT_date !=null and GT_date !=''">
+            AND accounts.date > #{GT_date}
+        </if>
+        <if test="LT_date !=null and LT_date !=''">
+            AND accounts.date &lt; #{LT_date}
+        </if>
+        <if test="GTE_date !=null and GTE_date !=''">
+            AND accounts.date >= #{GTE_date}
+        </if>
+        <if test="LTE_date !=null and LTE_date !=''">
+            AND accounts.date &lt;= #{LTE_date}
+        </if>
+        <if test="IN_date !=null and IN_date !=''">
+            AND accounts.date IN
+            <foreach item="item" index="index" collection="IN_date"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_date !=null and NIN_date !=''">
+            AND accounts.date NOT IN
+            <foreach item="item" index="index" collection="NIN_date"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- date 结束 -->
+        <!-- status 开始 -->
+        <if test="EQ_status !=null and EQ_status !=''">
+            AND accounts.status = #{EQ_status}
+        </if>
+        <if test="NEQ_status !=null and NEQ_status !=''">
+            AND accounts.status != #{NEQ_status}
+        </if>
+        <if test="LIKE_status !=null and LIKE_status !=''">
+            AND accounts.status like CONCAT('%',#{LIKE_status},'%')
+        </if>
+        <if test="LIKEP_status !=null and LIKEP_status !=''">
+            AND accounts.status like CONCAT(#{LIKEP_status},'%')
+        </if>
+        <if test="PLIKE_status !=null and PLIKE_status !=''">
+            AND accounts.status like CONCAT('%',#{PLIKE_status})
+        </if>
+        <if test="GT_status !=null and GT_status !=''">
+            AND accounts.status > #{GT_status}
+        </if>
+        <if test="LT_status !=null and LT_status !=''">
+            AND accounts.status &lt; #{LT_status}
+        </if>
+        <if test="GTE_status !=null and GTE_status !=''">
+            AND accounts.status >= #{GTE_status}
+        </if>
+        <if test="LTE_status !=null and LTE_status !=''">
+            AND accounts.status &lt;= #{LTE_status}
+        </if>
+        <if test="IN_status !=null and IN_status !=''">
+            AND accounts.status IN
+            <foreach item="item" index="index" collection="IN_status"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_status !=null and NIN_status !=''">
+            AND accounts.status NOT IN
+            <foreach item="item" index="index" collection="NIN_status"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- status 结束 -->
+        <!-- adder 开始 -->
+        <if test="EQ_adder !=null and EQ_adder !=''">
+            AND accounts.adder = #{EQ_adder}
+        </if>
+        <if test="NEQ_adder !=null and NEQ_adder !=''">
+            AND accounts.adder != #{NEQ_adder}
+        </if>
+        <if test="LIKE_adder !=null and LIKE_adder !=''">
+            AND accounts.adder like CONCAT('%',#{LIKE_adder},'%')
+        </if>
+        <if test="LIKEP_adder !=null and LIKEP_adder !=''">
+            AND accounts.adder like CONCAT(#{LIKEP_adder},'%')
+        </if>
+        <if test="PLIKE_adder !=null and PLIKE_adder !=''">
+            AND accounts.adder like CONCAT('%',#{PLIKE_adder})
+        </if>
+        <if test="GT_adder !=null and GT_adder !=''">
+            AND accounts.adder > #{GT_adder}
+        </if>
+        <if test="LT_adder !=null and LT_adder !=''">
+            AND accounts.adder &lt; #{LT_adder}
+        </if>
+        <if test="GTE_adder !=null and GTE_adder !=''">
+            AND accounts.adder >= #{GTE_adder}
+        </if>
+        <if test="LTE_adder !=null and LTE_adder !=''">
+            AND accounts.adder &lt;= #{LTE_adder}
+        </if>
+        <if test="IN_adder !=null and IN_adder !=''">
+            AND accounts.adder IN
+            <foreach item="item" index="index" collection="IN_adder"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_adder !=null and NIN_adder !=''">
+            AND accounts.adder NOT IN
+            <foreach item="item" index="index" collection="NIN_adder"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- adder 结束 -->
+        <!-- passport_number 开始 -->
+        <if test="EQ_passportNumber !=null and EQ_passportNumber !=''">
+            AND accounts.passport_number = #{EQ_passportNumber}
+        </if>
+        <if test="NEQ_passportNumber !=null and NEQ_passportNumber !=''">
+            AND accounts.passport_number != #{NEQ_passportNumber}
+        </if>
+        <if test="LIKE_passportNumber !=null and LIKE_passportNumber !=''">
+            AND accounts.passport_number like CONCAT('%',#{LIKE_passportNumber},'%')
+        </if>
+        <if test="LIKEP_passportNumber !=null and LIKEP_passportNumber !=''">
+            AND accounts.passport_number like CONCAT(#{LIKEP_passportNumber},'%')
+        </if>
+        <if test="PLIKE_passportNumber !=null and PLIKE_passportNumber !=''">
+            AND accounts.passport_number like CONCAT('%',#{PLIKE_passportNumber})
+        </if>
+        <if test="GT_passportNumber !=null and GT_passportNumber !=''">
+            AND accounts.passport_number > #{GT_passportNumber}
+        </if>
+        <if test="LT_passportNumber !=null and LT_passportNumber !=''">
+            AND accounts.passport_number &lt; #{LT_passportNumber}
+        </if>
+        <if test="GTE_passportNumber !=null and GTE_passportNumber !=''">
+            AND accounts.passport_number >= #{GTE_passportNumber}
+        </if>
+        <if test="LTE_passportNumber !=null and LTE_passportNumber !=''">
+            AND accounts.passport_number &lt;= #{LTE_passportNumber}
+        </if>
+        <if test="IN_passportNumber !=null and IN_passportNumber !=''">
+            AND accounts.passport_number IN
+            <foreach item="item" index="index" collection="IN_passportNumber"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_passportNumber !=null and NIN_passportNumber !=''">
+            AND accounts.passport_number NOT IN
+            <foreach item="item" index="index" collection="NIN_passportNumber"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- passport_number 结束 -->
+        <!-- overseas_social_card 开始 -->
+        <if test="EQ_overseasSocialCard !=null and EQ_overseasSocialCard !=''">
+            AND accounts.overseas_social_card = #{EQ_overseasSocialCard}
+        </if>
+        <if test="NEQ_overseasSocialCard !=null and NEQ_overseasSocialCard !=''">
+            AND accounts.overseas_social_card != #{NEQ_overseasSocialCard}
+        </if>
+        <if test="LIKE_overseasSocialCard !=null and LIKE_overseasSocialCard !=''">
+            AND accounts.overseas_social_card like CONCAT('%',#{LIKE_overseasSocialCard},'%')
+        </if>
+        <if test="LIKEP_overseasSocialCard !=null and LIKEP_overseasSocialCard !=''">
+            AND accounts.overseas_social_card like CONCAT(#{LIKEP_overseasSocialCard},'%')
+        </if>
+        <if test="PLIKE_overseasSocialCard !=null and PLIKE_overseasSocialCard !=''">
+            AND accounts.overseas_social_card like CONCAT('%',#{PLIKE_overseasSocialCard})
+        </if>
+        <if test="GT_overseasSocialCard !=null and GT_overseasSocialCard !=''">
+            AND accounts.overseas_social_card > #{GT_overseasSocialCard}
+        </if>
+        <if test="LT_overseasSocialCard !=null and LT_overseasSocialCard !=''">
+            AND accounts.overseas_social_card &lt; #{LT_overseasSocialCard}
+        </if>
+        <if test="GTE_overseasSocialCard !=null and GTE_overseasSocialCard !=''">
+            AND accounts.overseas_social_card >= #{GTE_overseasSocialCard}
+        </if>
+        <if test="LTE_overseasSocialCard !=null and LTE_overseasSocialCard !=''">
+            AND accounts.overseas_social_card &lt;= #{LTE_overseasSocialCard}
+        </if>
+        <if test="IN_overseasSocialCard !=null and IN_overseasSocialCard !=''">
+            AND accounts.overseas_social_card IN
+            <foreach item="item" index="index" collection="IN_overseasSocialCard"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="NIN_overseasSocialCard !=null and NIN_overseasSocialCard !=''">
+            AND accounts.overseas_social_card NOT IN
+            <foreach item="item" index="index" collection="NIN_overseasSocialCard"
+                     open="(" separator="," close=")">
+               #{item}
+            </foreach>
+        </if>
+        <!-- overseas_social_card 结束 -->
+    </sql>
+
+	<select id="selectById" resultMap="AccountsModelResultMap">
+		SELECT
+        <include refid="accountsColumns"></include>
+        FROM accounts
+        WHERE 
+		deleted = false and
+		id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="AccountsModel">
+        INSERT INTO accounts
+        (<include refid="accountsColumns"></include>)
+        VALUES
+        (<include refid="accountsValues"></include>)
+    </insert>
+
+    <insert id="insertBatch" parameterType="java.util.List">
+      INSERT INTO accounts
+        (<include refid="accountsColumns"></include>)
+        VALUES
+        <foreach item="item" index="index" collection="list" separator=",">
+            (<include refid="accountsValuesBatch"></include>)
+        </foreach>
+    </insert>
+
+    <select id="selectListByCondition" resultMap="AccountsModelResultMap">
+        SELECT
+        <include refid="accountsColumns"></include>
+        FROM
+        accounts
+        <where>
+			deleted = false
+            <include refid="accountsWheres"></include>
+        </where>
+    </select>
+
+    <update id="update" parameterType="AccountsModel">
+        UPDATE accounts
+        <set>
+            <include refid="accountsSets"></include>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- ===========================================代码生成结束============================================ -->
+</mapper>
